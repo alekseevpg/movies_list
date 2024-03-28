@@ -8,16 +8,16 @@ https://twitter.com/pointfreeco/status/1691496668573605892?s=20
 Workaround for it would look like that
 
 
-var body: some View {
-    @Bindable var bindableModel = coordinator
-
-    List {
-        ForEach(viewModel.movies) { movie in
-            Button {
-                bindableModel.navigate(to: .movieDetails(movie: movie))
-            } label: {
-                MovieCellView(movie: movie)
+    var body: some View {
+        @Bindable var bindableModel = coordinator
+    
+        List {
+            ForEach(viewModel.movies) { movie in
+                Button {
+                    bindableModel.navigate(to: .movieDetails(movie: movie))
+                } label: {
+                    MovieCellView(movie: movie)
+                }
             }
         }
     }
-}
