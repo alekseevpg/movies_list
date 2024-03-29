@@ -1,13 +1,17 @@
 import Foundation
 
-class MovieService: MovieRepository {
+class MovieService {
     private let repo: MovieRepository
+    private var movies: [Movie] = []
 
     init(repo: MovieRepository) {
         self.repo = repo
     }
 
     func getMovies() throws -> [Movie] {
-        try repo.getMovies()
+        if movies.isEmpty {
+            movies = try repo.getMovies()
+        }
+        return movies
     }
 }
