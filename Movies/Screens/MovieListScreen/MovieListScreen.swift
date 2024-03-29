@@ -8,12 +8,10 @@ struct MovieListScreen: View {
     @Bindable var viewModel: MovieListViewModel
 
     var body: some View {
-        @Bindable var bindableModel = coordinator
-
         List {
             ForEach(viewModel.movies) { movie in
                 Button {
-                    bindableModel.navigate(to: .movieDetails(movie: movie))
+                    coordinator.navigate(to: .movieDetails(movie: movie))
                 } label: {
                     MovieCellView(movie: movie)
                 }
